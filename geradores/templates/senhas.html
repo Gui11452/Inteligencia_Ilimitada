@@ -1,0 +1,156 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/gerador_senhas.css' %}">
+    <link rel="icon" href="{% static 'images/senha.png' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3198833494006892"
+     crossorigin="anonymous"></script>
+    <title> Gerador de Senhas - Inteligência Ilimitada </title>
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+            <a href="{% url 'gerador_senhas' %}">
+                <img src="{% static 'images/senha.png' %}" alt="Inteligência Ilimitada">
+                <h1>
+                    Gerador de Senhas
+                </h1>
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+            <h2>
+                Bem-vindo ao Gerador de Senhas!
+                Uma ferramenta online e gratuita que permite criar senhas aleatórias e seguras
+            </h2>
+
+            <div class="campo-senha">
+                <div>
+                    <p></p>
+                    <div class="botoes">
+                        <img src="{% static 'images/copiar.png' %}" alt="Gerador Senhas - Inteligência Ilimitada">
+                        <img src="{% static 'images/reiniciar.png' %}" alt="Gerador Senhas - Inteligência Ilimitada">
+                        <span>
+                            Copiado
+                        </span>
+                    </div>
+                </div>
+                <span>
+                    <span class="indicador"></span>
+                </span>
+                <div>
+                    <h3>
+                        Personalize sua senha
+                    </h3>
+                    <span></span>
+                    <form action="" method="" class="gerar-senha">
+                        <div>
+                            <label for="qtd_caracteres">Número de caracteres da senha</label>
+                            <div class="gerar-senha-range">
+                                <input type="number" id="qtd_caracteres" value="20">
+                                <input type="range" id="range" min="1" max="50">
+                            </div>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="tipo-senha" value="Fácil de pronunciar">
+                                <p>
+                                    Fácil de pronunciar
+                                </p>
+                            </label>
+                            <small>Evitar números e caracteres especiais</small>
+                            <label>
+                                <input type="radio" name="tipo-senha" value="Fácil de ler">
+                                <p>
+                                    Fácil de ler
+                                </p>
+                            </label>
+                            <small>Evitar caracteres ambíguos, como l, 1, 0, O</small>
+                            <label>
+                                <input type="radio" name="tipo-senha" value="Todos os caracteres">
+                                <p>
+                                    Todos os caracteres
+                                </p>
+                            </label>
+                            <small>Vai misturar símbolos, letras e números</small>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="conteudo-senha" value="Letra maiúscula">
+                                <p>
+                                    Letra maiúscula
+                                </p>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="conteudo-senha" value="Letra minúscula">
+                                <p>
+                                    Letra minúscula
+                                </p>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="conteudo-senha" value="Números">
+                                <p>
+                                    Números
+                                </p>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="conteudo-senha" value="Símbolos">
+                                <p>
+                                    Símbolos
+                                </p>
+                            </label>
+                        </div>
+                    </form>
+                    <a href="">
+                        Copiar Senha
+                    </a>
+                </div>
+            </div>
+
+            <p>
+                DISCLAIMER: O Gerador de Senhas é uma ferramenta altamente eficaz. 
+                Ele utiliza algoritmos complexos para criar combinações aleatórias de 
+                letras, números e caracteres especiais. Isso irá ajudá-lo a criar senhas 
+                seguras e proteger suas informações pessoais. Nosso gerador de senhas não 
+                armazena as senhas criadas, ou seja, apenas você saberá a senha gerada na 
+                ferramenta.
+            </p>
+
+            
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p>
+            © 2024 Gerador Senhas - Inteligência Ilimitada - Copyright
+        </p>
+        <nav>
+            <a href="{% url 'politica_cookies' %}" target="_blank">
+                Política de Cookies
+            </a>
+            <a href="{% url 'politica_privacidade' %}" target="_blank">
+                Política de Privacidade
+            </a>
+            <a href="mailto:contato@inteligenciailimitada.com.br">
+                Contato: contato@inteligenciailimitada.com.br
+            </a>
+        </nav>
+    </footer>
+
+
+    <script src="{% static 'js/gerador_senhas.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block branding %}
+    <a href="https://inteligenciailimitada.com.br/admin/">
+        <img style="max-width: 200px;" src="{% static 'images/logo.png' %}">
+    </a>
+{% endblock %}
+
+{% block extrastyle %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin/admin.css' %}">
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
+    <title> {% block title %} Área administrativa - Inteligência Ilimitada {% endblock %}</title>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/baixar_imagem_sem_fundo.css' %}">
+    <link rel="icon" href="{% static 'images/remover.png' %}">
+    <title> Removedor Fundo Imagem - Inteligência Ilimitada </title>
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'removedor_fundo' %}">
+                <img src="{% static 'images/remover.png' %}" alt="Gerador Senhas - Inteligência Ilimitada">
+            </a>
+            <h1>
+                Removedor Fundo Imagem
+            </h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+
+            <div class="imagens">
+                <div>
+                    <h2> Antes </h2>
+                    <img src="{{img.img_before.url}}" alt="Removedor Fundo Imagem - Inteligência Ilimitada">
+                </div>
+                <div>
+                    <h2> Depois </h2>
+                    <img src="{{img.img_after.url}}" alt="Removedor Fundo Imagem - Inteligência Ilimitada">
+                </div>
+            </div>
+            <a href="{{img.img_after.url}}" download>
+                Baixar imagem sem fundo
+            </a>
+            <a href="{% url 'removedor_fundo' %}">
+                Escolher outra foto
+            </a>
+            
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p>
+            © 2024 Removedor Fundo Imagem - Inteligência Ilimitada - Copyright
+        </p>
+        <nav>
+            <a href="{% url 'politica_cookies' %}" target="_blank">
+                Política de Cookies
+            </a>
+            <a href="{% url 'politica_privacidade' %}" target="_blank">
+                Política de Privacidade
+            </a>
+            <a href="mailto:contato@inteligenciailimitadas.com.br">
+                Contato: contato@inteligenciailimitadas.com.br
+            </a>
+        </nav>
+    </footer>
+
+    <script src="{% static 'js/removedor_fundo.js' %}"></script>
+</body>
+</html>

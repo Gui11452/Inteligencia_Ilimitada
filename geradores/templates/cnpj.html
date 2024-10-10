@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/gerador_cnpj.css' %}">
+    <link rel="icon" href="{% static 'images/empresa.png' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3198833494006892"
+     crossorigin="anonymous"></script>
+    <title> Gerador de CNPJ - Inteligência Ilimitada </title>
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+            <a href="{% url 'gerador_cnpj' %}">
+                <img src="{% static 'images/empresa.png' %}" alt="Inteligência Ilimitada">
+                <h1>
+                    Gerador de CNPJ
+                </h1>
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+            <h2>
+                Bem-vindo ao Gerador de CNPJ!
+                Uma ferramenta online e gratuita que permite gerar números fictícios de CNPJ
+            </h2>
+
+            <form method="" action="" class="gerador">
+                <input type="submit" value="Gerar CNPJ">
+            </form>
+
+            <div class="resultados">
+                <h2>
+                    Resultado
+                </h2>
+                <div>
+                    <div class="cnpj">
+                        <p></p>
+                        <img src="{% static 'images/copiar.png' %}" alt="Gerador CNPJ - Inteligência Ilimitada">
+                        <span>
+                            CNPJ copiado!
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                DISCLAIMER: Nosso Gerador de CNPJ tem como objetivo ajudar estudantes, 
+                programadores e analistas de sistemas a gerar CNPJ fictícios matematicamente 
+                válidos para testar seus softwares em desenvolvimento. Os números são gerados 
+                de forma aleatória, respeitando as regras matemáticas de criação do documento. 
+                Os CNPJ gerados não correspondem a empresas reais. O Inteligência Ilimitada não 
+                tem qualquer vínculo com a Receita Federal do Brasil. Para informações oficiais 
+                sobre CNPJ consulte o site da instituição.
+            </p>
+    
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p>
+            © 2024 Gerador CNPJ - Inteligência Ilimitada - Copyright
+        </p>
+        <nav>
+            <a href="{% url 'politica_cookies' %}" target="_blank">
+                Política de Cookies
+            </a>
+            <a href="{% url 'politica_privacidade' %}" target="_blank">
+                Política de Privacidade
+            </a>
+            <a href="mailto:contato@inteligenciailimitadas.com.br">
+                Contato: contato@inteligenciailimitadas.com.br
+            </a>
+        </nav>
+    </footer>
+
+
+    <script src="{% static 'js/gerador_cnpj.js' %}"></script>
+</body>
+</html>

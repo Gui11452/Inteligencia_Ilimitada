@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/gerador_cpf.css' %}">
+    <link rel="icon" href="{% static 'images/empresa.png' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3198833494006892"
+     crossorigin="anonymous"></script>
+    <title> Gerador de CPF - Inteligência Ilimitada </title>
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+            <a href="{% url 'gerador_cpf' %}">
+                <img src="{% static 'images/icons/ai-code.png' %}" alt="Inteligência Ilimitada">
+                <h1>
+                    Gerador de CPF
+                </h1>
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+            <h2>
+                Bem-vindo ao Gerador de CPF!
+                Uma ferramenta online e gratuita que permite gerar números fictícios de CPF
+            </h2>
+
+            <form method="" action="" class="gerador">
+                <input type="submit" value="Gerar CPF">
+            </form>
+
+            <div class="resultados">
+                <h2>
+                    Resultado
+                </h2>
+                <div>
+                    <div class="cpf">
+                        <p></p>
+                        <img src="{% static 'images/copiar.png' %}" alt="Gerador CPF - Inteligência Ilimitada">
+                        <span>
+                            CPF copiado!
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                DISCLAIMER: Nosso Gerador de CPF tem como objetivo ajudar estudantes, 
+                programadores e analistas de sistemas a gerar CPF fictícios matematicamente 
+                válidos para testar seus softwares em desenvolvimento. Os números são gerados 
+                de forma aleatória, respeitando as regras matemáticas de criação do documento. 
+                Os CPF gerados não correspondem a pessoas reais. O Inteligência Ilimitada não 
+                tem qualquer vínculo com a Receita Federal do Brasil. Para informações oficiais 
+                sobre CPF consulte o site da instituição.
+            </p>
+            
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p>
+            © 2024 Gerador CPF - Inteligência Ilimitada - Copyright
+        </p>
+        <nav>
+            <a href="{% url 'politica_cookies' %}" target="_blank">
+                Política de Cookies
+            </a>
+            <a href="{% url 'politica_privacidade' %}" target="_blank">
+                Política de Privacidade
+            </a>
+            <a href="mailto:contato@inteligenciailimitada.com.br">
+                Contato: contato@inteligenciailimitada.com.br
+            </a>
+        </nav>
+    </footer>
+
+
+    <script src="{% static 'js/gerador_cpf.js' %}"></script>
+</body>
+</html>

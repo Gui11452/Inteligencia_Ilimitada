@@ -1,0 +1,126 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/consulta_site.css' %}">
+    <link rel="icon" href="{% static 'images/consulta_site.png' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3198833494006892"
+     crossorigin="anonymous"></script>
+
+    <title> Consulta Site - Inteligência Ilimitada </title>
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+            <a href="{% url 'consulta_site' %}">
+                <img src="{% static 'images/consulta_site.png' %}" alt="Inteligência Ilimitada">
+                <h1>
+                    Consulta Site
+                </h1>
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+            <h2>
+                Bem-vindo ao Consulta Site! Uma ferramenta online e gratuita que permite verificar se um site é seguro e confiável
+            </h2>
+
+            <form method="" action="" class="scanner">
+                <div>
+                    <label for="url">
+                        URL do site:
+                        <input type="text" id="url" name="url" required placeholder="Ex: https://google.com.br"> 
+                    </label>
+                </div>
+                <small></small>
+                <input type="submit" value="Consultar" id="scannear">
+                <span class="loader"></span>
+            </form>
+
+            <div class="resultados">
+                <h2>
+                    Resultado
+                </h2>
+                <div>
+                    <div class="cabecalho-tabela">
+                        <p>
+                            Resultado
+                        </p>
+                    </div>
+                    <div class="veracidade">
+                        <p>
+                            <img src="{% static 'images/verificacao.png' %}" alt="Consulta Site - Inteligência Ilimitada">
+                            Site Verdadeiro
+                        </p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div class="popularidade">
+                        <p>Popularidade</p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div class="tempo">
+                        <p>Tempo de registro</p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div class="https">
+                        <p>HTTPS</p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div class="ssl">
+                        <p>SSL (Certificado)</p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                DISCLAIMER: Nossa ferramenta utiliza Inteligência Artificial para 
+                analisar em tempo real os dados de um site, incluindo bancos de dados, 
+                blacklists, registros, reputação e interações dos usuários.
+            </p>
+
+            
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p>
+            © 2024 Consulta Site - Inteligência Ilimitada - Copyright
+        </p>
+        <nav>
+            <a href="{% url 'politica_cookies' %}" target="_blank">
+                Política de Cookies
+            </a>
+            <a href="{% url 'politica_privacidade' %}" target="_blank">
+                Política de Privacidade
+            </a>
+            <a href="mailto:contato@inteligenciailimitada.com.br">
+                Contato: contato@inteligenciailimitada.com.br
+            </a>
+        </nav>
+    </footer>
+
+
+    <script src="{% static 'js/consulta_site.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+</body>
+</html>

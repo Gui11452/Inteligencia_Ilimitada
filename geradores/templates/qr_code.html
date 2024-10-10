@@ -1,0 +1,223 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" 
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css" integrity="sha512-cHxvm20nkjOUySu7jdwiUxgGy11vuVPE9YeK89geLMLMMEOcKFyS2i+8wo0FOwyQO/bL8Bvq1KMsqK4bbOsPnA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/brands.min.css" integrity="sha512-L+sMmtHht2t5phORf0xXFdTC0rSlML1XcraLTrABli/0MMMylsJi3XA23ReVQkZ7jLkOEIMicWGItyK4CAt2Xw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/solid.min.css" integrity="sha512-bdTSJB23zykBjGDvyuZUrLhHD0Rfre0jxTd0/jpTbV7sZL8DCth/88aHX0bq2RV8HK3zx5Qj6r2rRU/Otsjk+g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/qr_code.css' %}">
+    <link rel="icon" href="{% static 'images/qr_code_site.png' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3198833494006892"
+     crossorigin="anonymous"></script>
+    <title> QR CODE - Inteligência Ilimitada </title>
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+            <a href="{% url 'qr_code' %}">
+                <img src="{% static 'images/qr_code_site.png' %}" alt="Inteligência Ilimitada">
+                <h1>
+                    Gerador de QR CODE
+                </h1>
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+            <h2>
+                Bem-vindo ao Gerador de QR Code!
+                Uma ferramenta online e gratuita que permite gerar diferentes tipos de QR Code
+            </h2>
+            
+            <form method="POST" action="{% url 'qr_code' %}" class="gerador">
+                {% csrf_token %}
+                {% include 'parciais/_messages.html' %}
+                <div>
+                    <label for="radio_link">
+                        <i class="fa-solid fa-globe"></i>
+                        URL
+                    </label>
+                    <label for="radio_whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        Whatsapp
+                    </label>
+                    <label for="radio_email">
+                        <i class="fa-solid fa-globe"></i>
+                        E-mail
+                    </label>
+                    <label for="radio_sms">
+                        <i class="fa-regular fa-comment-dots"></i>
+                        SMS
+                    </label>
+                    <label for="radio_pix">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                        Pagamento Pix
+                    </label>
+                    <label for="radio_wifi">
+                        <i class="fa-solid fa-wifi"></i>
+                        WIFI
+                    </label>
+                    <input type="radio" name="campo" id="radio_link" value="link">
+                    <input type="radio" name="campo" id="radio_whatsapp" value="whatsapp">
+                    <input type="radio" name="campo" id="radio_email" value="email">
+                    <input type="radio" name="campo" id="radio_sms" value="sms">
+                    <input type="radio" name="campo" id="radio_pix" value="pix">
+                    <input type="radio" name="campo" id="radio_wifi" value="wifi">
+                </div>
+                <div id="campos">
+                    <div id="campo_link" class="ocultar">
+                        <label for="link">Coloque o link desejado abaixo:</label>
+                        <input type="url" name="link" id="link">
+                        <small class="error_link"></small>
+                    </div>
+                    <div id="campo_whatsapp" class="ocultar">
+                        <label for="numero_whatsapp">Coloque o número do whatsapp desejado abaixo:</label>
+                        <input type="text" name="numero_whatsapp" id="numero_whatsapp" onkeypress="$(this).mask('(00) 00000-0000')">
+
+                        <label for="texto_whatsapp">Coloque o texto do whatsapp (mensagem padrão de envio):</label>
+                        <input type="text" name="texto_whatsapp" id="texto_whatsapp">
+
+                        <small class="error_whatsapp"></small>
+                    </div>
+                    <div id="campo_email" class="ocultar">
+                        <label for="email">Coloque o e-mail desejado abaixo:</label>
+                        <input type="email" name="email" id="email">
+                        <small class="error_email"></small>
+                    </div>
+                    <div id="campo_sms" class="ocultar">
+                        <label for="sms_number">
+                            Número:
+                        </label>
+                        <input type="text" name="sms_number" id="sms_number" onkeypress="$(this).mask('(00) 00000-0000')">
+                        <label for="sms_mensagem">
+                            Mensagem:
+                        </label>
+                        <textarea name="sms_mensagem" id="sms_mensagem" cols="30" rows="10"></textarea>
+                        <small class="error_sms"></small>
+                    </div>
+                    <div id="campo_pix" class="ocultar">
+                        <label for="chave_pix">
+                            Chave Pix:
+                        </label>
+                        <div>
+                            <select name="selecionar-tipo-chave-pix">
+                                <option value="Telefone">Telefone</option>
+                                <option value="Email">Email</option>
+                                <option value="CPF">CPF</option>
+                                <option value="CNPJ">CNPJ</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                            <input type="text" name="chave_pix_telefone" class="chave_pix" onkeypress="$(this).mask('+55 (00) 00000-0000')" placeholder="(00) 00000-0000">
+                            <input type="email" name="chave_pix_email" class="chave_pix ocultar" placeholder="email@gmail.com">
+                            <input type="text" name="chave_pix_cpf" class="chave_pix ocultar" onkeypress="$(this).mask('000.000.000-00')" placeholder="000.000.000-00">
+                            <input type="text" name="chave_pix_cnpj" class="chave_pix ocultar" onkeypress="$(this).mask('00.000.000/0000-00')" placeholder="00.000.000/0000-00">
+                            <input type="text" name="chave_pix_outro" class="chave_pix ocultar" placeholder=" CHAVE-PIX-ALPHANUMERICA">
+                        </div>
+
+                        <label for="nome_pix">
+                            Nome do beneficiário (até 25 letras):
+                        </label>
+                        <input type="text" name="nome_pix" id="nome_pix" maxlength="25">
+
+                        <label for="cidade_pix">
+                            Cidade do beneficiário ou da transação (até 15 letras):
+                        </label>
+                        <input type="text" name="cidade_pix" id="cidade_pix"  maxlength="15">
+
+                        <label for="valor_pix">
+                            Valor para transferência (OPCIONAL):
+                        </label>
+                        <input type="text" name="valor_pix" id="valor_pix" onkeypress="$(this).mask('############0.00', {reverse: true})">
+
+                        <label for="codigo_pix">
+                            Mais informações - Sem espaço (OPCIONAL - até 20 Letras e/ou Números)
+                        </label>
+                        <input type="text" name="codigo_pix" id="codigo_pix" maxlength="20" placeholder="PAGAMENTO123D">
+
+                        <small class="error_pix"></small>
+
+                    </div>
+                    <div id="campo_wifi" class="ocultar">
+                        <label for="nome_rede">
+                            Nome da rede (SSID):
+                        </label>
+                        <input type="text" name="nome_rede" id="nome_rede" placeholder="Ex: WifiMinhaCasa">
+
+                        <label for="senha_rede">
+                            Palavra-passe/Senha da rede (OPCIONAL):
+                        </label>
+                        <input type="text" name="senha_rede" id="senha_rede" placeholder="Ex: Minha senha">
+
+                        <label for="encriptacao_rede">
+                            Tipo de encriptação:
+                        </label>
+                        <select name="encriptacao_rede" id="encriptacao_rede">
+                            <option value="WEP">WEP</option>
+                            <option value="WPA">WPA</option>
+                            <option value="WPA2-EAP">WPA2-EAP</option>
+                            <option value="nopass">nopass</option>
+                        </select>
+
+                        <label for="ocultacao_rede">
+                            Rede oculta?
+                        </label>
+                        <select name="ocultacao_rede" id="ocultacao_rede">
+                            <option value="false">Não</option>
+                            <option value="true">Sim</option>
+                        </select>
+
+                        <small class="error_wifi"></small>
+                    </div>
+                    <span class="loader"></span>
+                    <input type="submit" value="Gerar" id="botao-gerar">
+                </div>
+            </form>
+
+            <p>
+                DISCLAIMER: Com o Gerador de QR Code você poderá criar um código 
+                específico para diversas finalidades, e compartilhar facilmente 
+                com seus clientes e amigos.
+            </p>
+            
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p>
+            © 2024 Gerador QR CODE - Inteligência Ilimitada - Copyright
+        </p>
+        <nav>
+            <a href="{% url 'politica_cookies' %}" target="_blank">
+                Política de Cookies
+            </a>
+            <a href="{% url 'politica_privacidade' %}" target="_blank">
+                Política de Privacidade
+            </a>
+            <a href="mailto:contato@inteligenciailimitada.com.br">
+                Contato: contato@inteligenciailimitada.com.br
+            </a>
+        </nav>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="{% static 'js/qr_code.js' %}"></script>
+</body>
+</html>

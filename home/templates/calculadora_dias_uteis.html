@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/calculadora_dias_uteis.css' %}">
+    <link rel="icon" href="{% static 'images/calculadora.png' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3198833494006892"
+     crossorigin="anonymous"></script>
+    <title> Calculadora de Dias Úteis - Inteligência Ilimitada </title>
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+            <a href="{% url 'calculadora_dias_uteis' %}">
+                <img src="{% static 'images/calculadora.png' %}" alt="Inteligência Ilimitada">
+                <h1>
+                    Calculadora de Dias Úteis
+                </h1>
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+            <h2>
+                Bem-vindo ao Calculadora de Dias Úteis!
+                Uma ferramenta que mostra quantos dias úteis existem em determinado período
+            </h2>
+
+            <form method="" action="" class="calculadora">
+                <div>
+                    <label>
+                        Data de início
+                        <input type="date" id="data_inicio" name="data_inicio">
+                    </label>
+                    <label for="">
+                        Data final
+                        <input type="date" id="data_fim" name="data_fim">
+                    </label>
+                </div>
+                <small></small>
+                <input type="submit" value="Calcular" id="calcular">
+            </form>
+
+            <div class="resultados">
+                <h2>
+                    Resultado
+                </h2>
+                <div>
+                    <div class="dias-uteis">
+                        <p>
+                            Dias úteis
+                        </p>
+                        <p></p>
+                    </div>
+                    <div class="dias-corridos">
+                        <p>
+                            Dias corridos
+                        </p>
+                        <p></p>
+                    </div>
+                    <div class="sabados">
+                        <p>
+                            Sábados
+                        </p>
+                        <p></p>
+                    </div>
+                    <div class="domingos">
+                        <p>
+                            Domingos
+                        </p>
+                        <p></p>
+                    </div>
+                    <div class="feriados-nacionais">
+                        <p>
+                            Feriados Nacionais
+                        </p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                DISCLAIMER: A nossa Calculadora de Dias Úteis NÃO considera os 
+                feriados estaduais e municipais para o cálculo, apenas os 
+                feriados nacionais são considerados.
+            </p>
+
+            
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p>
+            © 2024 Calculadora de Dias Úteis - Inteligência Ilimitada - Copyright
+        </p>
+        <nav>
+            <a href="{% url 'politica_cookies' %}" target="_blank">
+                Política de Cookies
+            </a>
+            <a href="{% url 'politica_privacidade' %}" target="_blank">
+                Política de Privacidade
+            </a>
+            <a href="mailto:contato@inteligenciailimitada.com.br">
+                Contato: contato@inteligenciailimitada.com.br
+            </a>
+        </nav>
+    </footer>
+
+
+    <script src="{% static 'js/calculadora_dias_uteis.js' %}"></script>
+</body>
+</html>

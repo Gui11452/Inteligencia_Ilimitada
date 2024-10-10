@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/removedor_fundo.css' %}">
+    <link rel="icon" href="{% static 'images/remover.png' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3198833494006892"
+     crossorigin="anonymous"></script>
+    <title> Removedor de Fundo - Inteligência Ilimitada </title>
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+            <a href="{% url 'removedor_fundo' %}">
+                <img src="{% static 'images/icons/ai-image.png' %}" alt="Inteligência Ilimitada">
+                <h1>
+                    Removedor de Fundo
+                </h1>
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+
+            <h2>
+                Bem-vindo ao Removedor de Fundo de Imagem!
+                Uma ferramenta online e gratuita que permite remover facilmente o fundo de uma imagem
+            </h2>
+
+            <div class="remover-fundo">
+                <div>
+                    <img src="{% static 'images/happy.png' %}" alt="Removedor Fundo Imagem - Inteligência Ilimitada">
+                    <p>
+                        100% automático e de <span>graça</span>
+                    </p>
+                </div>
+                <form method="POST" action="{% url 'removedor_fundo' %}" class="drop-zone" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="file_before">
+                        Faça upload
+                    </label>
+                    <p>
+                        ou arraste uma imagem para cá
+                    </p>
+                    <span class="loader"></span>
+                    <input type="file" name="file_before" id="file_before">
+                </form>
+            </div>
+
+            <p>
+                DISCLAIMER: O Removedor de Fundo de Imagem é uma ferramenta muito fácil 
+                de usar. Basta arrastar ou fazer o upload da imagem que você deseja remover 
+                o fundo e, pronto.
+            </p>
+            
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p>
+            © 2024 Removedor Fundo Imagem - Inteligência Ilimitada - Copyright
+        </p>
+        <nav>
+            <a href="{% url 'politica_cookies' %}" target="_blank">
+                Política de Cookies
+            </a>
+            <a href="{% url 'politica_privacidade' %}" target="_blank">
+                Política de Privacidade
+            </a>
+            <a href="mailto:contato@inteligenciailimitada.com.br">
+                Contato: contato@inteligenciailimitada.com.br
+            </a>
+        </nav>
+    </footer>
+
+    <script src="{% static 'js/removedor_fundo.js' %}"></script>
+</body>
+</html>

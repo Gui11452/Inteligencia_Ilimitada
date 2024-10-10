@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/peso_ideal.css' %}">
+    <link rel="icon" href="{% static 'images/peso_ideal.png' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3198833494006892"
+     crossorigin="anonymous"></script>
+
+    <title> Calculadora Peso Ideal - Inteligência Ilimitada </title>
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+            <a href="{% url 'peso_ideal' %}">
+                <img src="{% static 'images/peso_ideal.png' %}" alt="Inteligência Ilimitada">
+                <h1>
+                    Calculadora Peso Ideal
+                </h1>
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+            <h2>
+                Bem-vindo ao Calculadora de Peso Ideal! Uma ferramenta online e gratuita que calcula o IMC - Índice de Massa Corpórea
+            </h2>
+
+            <form method="" action="" class="calculadora">
+                <div>
+                    <label for="peso">
+                        Peso (kg)
+                        <input type="text" id="peso" name="peso" min="0" onkeypress="$(this).mask('00.00')" required>
+                    </label>
+                    <label for="">
+                        Altura (cm)
+                        <input type="text" id="altura" name="altura" min="0" onkeypress="$(this).mask('000')" required>
+                    </label>
+                </div>
+                <small></small>
+                <input type="submit" value="Calcular" id="calcular">
+            </form>
+
+            <div class="resultados">
+                <h2>
+                    Resultado
+                </h2>
+                <div>
+                    <div>
+                        <p>
+                            Peso
+                        </p>
+                        <p>
+                            IMC (kg/m²)
+                        </p>
+                        <p>
+                            Classificação
+                        </p>
+                    </div>
+                    <div class="muito-abaixo-peso">
+                        <p>
+
+                        </p>
+                        <p>
+                            Menor que 17
+                        </p>
+                        <p>
+                            Muito abaixo do peso
+                        </p>
+                    </div>
+                    <div class="abaixo-peso">
+                        <p>
+
+                        </p>
+                        <p>
+                            17 a 18,4
+                        </p>
+                        <p>
+                            Abaixo do peso
+                        </p>
+                    </div>
+                    <div class="peso-normal">
+                        <p>
+
+                        </p>
+                        <p>
+                            18,5 a 24,9
+                        </p>
+                        <p>
+                            Peso normal
+                        </p>
+                    </div>
+                    <div class="acima-peso">
+                        <p>
+
+                        </p>
+                        <p>
+                            25 a 29,9
+                        </p>
+                        <p>
+                            Acima do peso
+                        </p>
+                    </div>
+                    <div class="obesidade-grau-1">
+                        <p>
+                            
+                        </p>
+                        <p>
+                            30 a 34,9
+                        </p>
+                        <p>
+                            Obesidade grau I
+                        </p>
+                    </div>
+                    <div class="obesidade-grau-2">
+                        <p>
+
+                        </p>
+                        <p>
+                            35 a 40
+                        </p>
+                        <p>
+                            Obesidade grau II
+                        </p>
+                    </div>
+                    <div class="obesidade-grau-3">
+                        <p>
+
+                        </p>
+                        <p>
+                            Maior que 40
+                        </p>
+                        <p>
+                            Obesidade grau III
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                DISCLAIMER: O Índice de Massa Corpórea é um parâmetro adotado 
+                pela Organização Mundial de Saúde para calcular o peso ideal 
+                de cada pessoa. A classificação do IMC pode ajudar a identificar 
+                problemas de obesidade ou desnutrição.
+            </p>
+
+            
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p>
+            © 2024 Peso Ideal - Inteligência Ilimitada - Copyright
+        </p>
+        <nav>
+            <a href="{% url 'politica_cookies' %}" target="_blank">
+                Política de Cookies
+            </a>
+            <a href="{% url 'politica_privacidade' %}" target="_blank">
+                Política de Privacidade
+            </a>
+            <a href="mailto:contato@inteligenciailimitada.com.br">
+                Contato: contato@inteligenciailimitada.com.br
+            </a>
+        </nav>
+    </footer>
+
+
+    <script src="{% static 'js/peso_ideal.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+</body>
+</html>

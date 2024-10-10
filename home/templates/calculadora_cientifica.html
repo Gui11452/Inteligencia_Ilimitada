@@ -1,0 +1,372 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora Científica - Inteligência Ilimitada</title>
+    <link rel="icon" href="{% static 'images/calculadora_cientifica.png' %}">
+    <link rel="stylesheet" href="{% static 'css/calculadora_cientifica.css' %}">
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+            <a href="{% url 'calculadora_cientifica' %}">
+                <img src="{% static 'images/calculadora_cientifica.png' %}" alt="Inteligência Ilimitada">
+                <h1>
+                    Calculadora Científica
+                </h1>
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>
+          Bem-vindo ao Calculadora Científica! Um emulador online e gratuito que realiza cálculos científicos avançados
+        </h2>
+        <!-- Calculadora Científica -->
+        <div class="calculadora">
+            <table>
+                <tr>
+                    <th colspan="5">
+                        <input id="displayBox" type="text" readonly>
+                    </th>
+                </tr>
+                <tr>
+                    <td><button class="button greybutton" type="button" onclick="calculadora.clearMemory()">MC</button></td>
+                    <td><button class="button greybutton" type="button" onclick="calculadora.readMemory()">MR</button></td>
+                    <td><button class="button greybutton" type="button" onclick="calculadora.addToMemory()">M+</button></td>
+                    <td><button class="button greybutton" type="button" onclick="calculadora.subtractFromMemory()">M-</button></td>
+                    <td><button class="button greybutton" type="button" onclick="calculadora.saveToMemory()">MS</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.square()">x^2</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.nthTenPower()">10^x</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('sin(')">sin</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('cos(')">cos</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('tan(')">tan</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.cube()">x^3</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.inverseNumber()">x^-1</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('sqrt(')">sqrt</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('log(')">log</button></td>
+                    <td><button class="button blackbutton" type="button" onclick="calculadora.writeMathFunction('ln(')">ln</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button" type="button" onclick="calculadora.writeMathFunction('e')">e</button></td>
+                    <td><button class="button redbutton" type="button" onclick="calculadora.clearDisplay()">CE</button></td>
+                    <td><button class="button redbutton" type="button" onclick="calculadora.clearDisplay()">C</button></td>
+                    <td><button class="button redbutton" type="button" onclick="calculadora.eraseLastInput()">Del</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('/')">/</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button" type="button" onclick="calculadora.writeMathFunction('PI')">π</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('7')">7</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('8')">8</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('9')">9</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('*')">x</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button" type="button" onclick="calculadora.calculateFactorial()">n!</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('4')">4</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('5')">5</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('6')">6</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.toggleSign()">(-)</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('1')">1</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('2')">2</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('3')">3</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('(')">(</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay(')')">)</button></td>
+                    <td><button class="button bluebutton" type="button" onclick="calculadora.writeToDisplay('0')">0</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.writeToDisplay('.')">.</button></td>
+                    <td><button class="button greenbutton" type="button" onclick="calculadora.solveOperation()">=</button></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Calculadora de Derivadas -->
+        <div class="calculadora">
+            <h2>Calculadora de Derivadas</h2>
+            <input type="text" id="inputFunction" placeholder="Insira uma função (e. 3x^2+2x+1)">
+            <button class="btn" onclick="calculateDerivative()">
+                <span>
+                    Calcular Derivada
+                  </span>
+            </button>
+            <div class="result" id="result"></div>
+        </div>
+
+        <p>
+          DISCLAIMER: O nosso emulador Calculadora Científica não 
+          tem qualquer vínculo com a empresa de tecnologia e informática 
+          Casio, criadora da Calculadora Científica. Para informações oficiais 
+          sobre a Calculadora Casio consulte o site da empresa.
+        </p>
+
+    </main>
+
+    <footer class="rodape">
+      <p>
+          © 2024 Reescrever Texto - Inteligência Ilimitada - Copyright
+      </p>
+      <nav>
+          <a href="{% url 'politica_cookies' %}" target="_blank">
+              Política de Cookies
+          </a>
+          <a href="{% url 'politica_privacidade' %}" target="_blank">
+              Política de Privacidade
+          </a>
+          <a href="mailto:contato@inteligenciailimitada.com.br">
+              Contato: contato@inteligenciailimitada.com.br
+          </a>
+      </nav>
+    </footer>
+    
+    <script>
+      class CalculadoraBasica {
+        constructor() {
+            this.basicOperationShape = new RegExp("(([1-9][0-9]*|[0.])(.[0-9]*[1-9])?[\-\+\*\/])(([1-9][0-9]*|[0.])(.[0-9]*[1-9])?)");
+            this.memoryRegister = 0;
+        }
+
+        printMemoryContents() {
+            this.clearDisplay();
+            this.writeToDisplay(this.memoryRegister);
+        }
+
+        subtractFromMemory() {
+            this.memoryRegister -= this.solveOperation();
+        }
+
+        addToMemory() {
+            this.memoryRegister += this.solveOperation();
+        }
+
+        writeToDisplay(data) {
+            let legacy = document.getElementById("displayBox").value;
+            if (data == ".") {
+                legacy += data;
+            } else {
+                legacy = legacy == "0" ? data : legacy += data;
+            }
+            document.getElementById("displayBox").value = legacy;
+        }
+
+        writeOperatorToDisplay(operator) {
+            let legacy = document.getElementById("displayBox").value;
+            if (this.basicOperationShape.test(legacy)) {
+                this.solveOperation();
+            }
+            this.writeToDisplay(operator);
+        }
+
+        clearDisplay() {
+            document.getElementById("displayBox").value = "0";
+        }
+
+        solveOperation() {
+            let operation = document.getElementById("displayBox").value;
+            let result = 0;
+            try {
+                result = eval(operation === "" ? 0 : operation);
+            } catch (err) {
+                alert("Syntax error");
+                this.clearDisplay();
+            }
+            document.getElementById("displayBox").value = result;
+            return result;
+        }
+    }
+
+    class CalculadoraCientifica extends CalculadoraBasica {
+        constructor() {
+            super();
+            this.inputList = [];
+            this.operationString = "";
+            this.justSolved = false;
+            this.operationMap = {
+                "sin(": "Math.sin(",
+                "cos(": "Math.cos(",
+                "tan(": "Math.tan(",
+                "log(": "Math.log10(",
+                "ln(": "Math.log(",
+                "sqrt(": "Math.sqrt(",
+                "PI": "Math.PI",
+                "e": "Math.E"
+            };
+        }
+
+        writeToDisplay(data) {
+            if (document.getElementById("displayBox").value === "Syntax Error") {
+                super.clearDisplay();
+            }
+            super.writeToDisplay(data);
+            this.operationString += data;
+            this.inputList.push(data);
+        }
+
+        writeOperatorToDisplay(operator) {
+            if (document.getElementById("displayBox").value === "Syntax Error") {
+                super.clearDisplay();
+            }
+            this.operationString += operator;
+            super.writeToDisplay(operator);
+            this.inputList.push(operator);
+        }
+
+        solveOperation() {
+            let result = 0;
+            try {
+                result = eval(this.operationString === "" || this.operationString === "Syntax Error" ? 0 : this.operationString);
+            } catch (err) {
+                result = "Syntax Error";
+            }
+            document.getElementById("displayBox").value = result;
+            this.operationString = result.toString();
+            this.justSolved = true;
+            return result;
+        }
+
+        clearDisplay() {
+            super.clearDisplay();
+            this.operationString = "";
+        }
+
+        toggleSign() {
+            let displayBox = document.getElementById("displayBox");
+            let displayContents = displayBox.value;
+            if (displayContents === "Syntax Error") {
+                super.clearDisplay();
+            }
+            if (displayContents === "0") {
+                displayBox.value = "-";
+                this.operationString += "-";
+            } else {
+                displayBox.value = "-" + displayBox.value;
+                this.operationString = "-" + this.operationString;
+            }
+        }
+
+        clearMemory() {
+            this.memoryRegister = 0;
+        }
+
+        readMemory() {
+            this.clearDisplay();
+            this.writeToDisplay(this.memoryRegister);
+        }
+
+        saveToMemory() {
+            this.memoryRegister = this.solveOperation();
+        }
+
+        eraseLastInput() {
+            this.inputList.pop();
+            this.operationString = this.inputList.join('');
+            document.getElementById("displayBox").value = this.operationString;
+        }
+
+        writeMathFunction(data) {
+            if (document.getElementById("displayBox").value === "Syntax Error") {
+                super.clearDisplay();
+            }
+            super.writeToDisplay(data);
+            this.operationString += this.operationMap[data];
+            this.inputList.push(data);
+        }
+
+        calculateFactorial() {
+            let number = parseInt(this.operationString.split(/[^0-9]/).filter(Boolean).pop());
+            let result = 0;
+            try {
+                result = this.calculateRecursiveFactorial(number);
+            } catch (err) {
+                document.getElementById("displayBox").value = "That number is too big";
+                return;
+            }
+            this.clearDisplay();
+            document.getElementById("displayBox").value = result;
+        }
+
+        calculateRecursiveFactorial(number) {
+            if (number === 1 || number === 0) {
+                return 1;
+            }
+            return number * this.calculateRecursiveFactorial(number - 1);
+        }
+
+        nthTenPower() {
+            let number = parseInt(this.operationString.split(/[^0-9]/).filter(Boolean).pop());
+            this.clearDisplay();
+            document.getElementById("displayBox").value = Math.pow(10, number);
+        }
+
+        square() {
+            let number = parseInt(this.operationString.split(/[^0-9]/).filter(Boolean).pop());
+            this.clearDisplay();
+            document.getElementById("displayBox").value = Math.pow(number, 2);
+        }
+
+        cube() {
+            let number = parseInt(this.operationString.split(/[^0-9]/).filter(Boolean).pop());
+            this.clearDisplay();
+            document.getElementById("displayBox").value = Math.pow(number, 3);
+        }
+
+        inverseNumber() {
+            let number = parseInt(this.operationString.split(/[^0-9]/).filter(Boolean).pop());
+            this.clearDisplay();
+            document.getElementById("displayBox").value = 1 / number;
+        }
+    }
+
+    const calculadora = new CalculadoraCientifica();
+
+    function parseTerm(term) {
+        const parts = term.match(/([+-]?\d*\.?\d*)(x(?:\^(\d+))?)?/);
+        const coefficient = parts[1] ? parseFloat(parts[1]) : (parts[0].charAt(0) === '-' ? -1 : 1);
+        const exponent = parts[3] ? parseInt(parts[3]) : (parts[2] ? 1 : 0);
+        return { coefficient, exponent };
+    }
+
+    function deriveTerm(term) {
+        if (term.exponent === 0) return null;
+        const newCoefficient = term.coefficient * term.exponent;
+        const newExponent = term.exponent - 1;
+        return { coefficient: newCoefficient, exponent: newExponent };
+    }
+
+    function termToString(term) {
+        if (!term) return '';
+        let coeff = term.coefficient.toString();
+        if (term.exponent === 0) return coeff;
+        if (term.exponent === 1) return coeff + 'x';
+        return coeff + 'x^' + term.exponent;
+    }
+
+    function calculateDerivative() {
+        const input = document.getElementById('inputFunction').value;
+        const terms = input.split(/(?=[+-])/).map(term => term.trim());
+        const parsedTerms = terms.map(parseTerm);
+        const derivedTerms = parsedTerms.map(deriveTerm).filter(term => term !== null);
+        const result = derivedTerms.map(termToString).join(' + ').replace(/\+\s+-/g, '- ');
+        document.getElementById('result').innerText = 'Derivada: ' + result;
+    }
+    </script>
+</body>
+</html>

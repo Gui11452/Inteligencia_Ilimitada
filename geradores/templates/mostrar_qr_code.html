@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" 
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css" integrity="sha512-cHxvm20nkjOUySu7jdwiUxgGy11vuVPE9YeK89geLMLMMEOcKFyS2i+8wo0FOwyQO/bL8Bvq1KMsqK4bbOsPnA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/brands.min.css" integrity="sha512-L+sMmtHht2t5phORf0xXFdTC0rSlML1XcraLTrABli/0MMMylsJi3XA23ReVQkZ7jLkOEIMicWGItyK4CAt2Xw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/solid.min.css" integrity="sha512-bdTSJB23zykBjGDvyuZUrLhHD0Rfre0jxTd0/jpTbV7sZL8DCth/88aHX0bq2RV8HK3zx5Qj6r2rRU/Otsjk+g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mostrar_qr_code.css' %}">
+    <link rel="icon" href="{% static 'images/qr_code_site.png' %}">
+    <title> QR CODE - Inteligência Ilimitada </title>
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+            <a href="{% url 'qr_code' %}">
+                <img src="{% static 'images/qr_code_site.png' %}" alt="Inteligência Ilimitada">
+                <h1>
+                    Gerador de QR CODE
+                </h1>
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+            
+            
+            <div class="qrcode">
+                <h2>
+                    Parabéns, seu QRCODE foi gerado com sucesso
+                </h2>
+                <img src="{{obj.img_qrcode.url}}" alt="QR CODE - Inteligência Ilimitada">
+                <h3>
+                    Código do qrcode:
+                </h3>
+                <textarea rows="4" cols="4">{{obj.string_enviada}}</textarea>
+                <small>Código copiado</small>
+                <div>
+                    <a href="" class="copiar" copiar="{{obj.string_enviada}}">Copiar Código</a>
+                    <a href="{% url 'qr_code' %}">Gerar outro qrcode</a>
+                </div>
+            </div>
+
+            
+            
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p>
+            © 2024 Gerador QR CODE - Inteligência Ilimitada - Copyright
+        </p>
+        <nav>
+            <a href="{% url 'politica_cookies' %}" target="_blank">
+                Política de Cookies
+            </a>
+            <a href="{% url 'politica_privacidade' %}" target="_blank">
+                Política de Privacidade
+            </a>
+            <a href="mailto:contato@inteligenciailimitada.com.br">
+                Contato: contato@inteligenciailimitada.com.br
+            </a>
+        </nav>
+    </footer>
+
+    <script>
+        const botaoCopiar = document.querySelector('.copiar');
+        const small = document.querySelector('.qrcode small');
+        document.addEventListener('click', e => {
+            const el = e.target;
+
+            if(el == botaoCopiar){
+                e.preventDefault();
+                navigator.clipboard.writeText(botaoCopiar.getAttribute('copiar'));
+                small.style.display = 'inline-block';
+                setTimeout(() => {
+                    small.style.display = 'none';
+                }, 2000);
+            }
+
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>{{post.titulo}} - Inteligência Ilimitada</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap"
+		rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet">
+
+	<!--Color Switcher Mockup-->
+	<link href="{% static 'css/color-switcher-design.css' %}" rel="stylesheet">
+	<!-- Color Themes -->
+	<link id="theme-color-file" href="{% static 'css/color-themes/default-color.css' %}" rel="stylesheet">
+	<link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+	<link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+	<!-- Responsive -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<!-- Stylesheets -->
+	<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+		.post-texto span, .post-texto font{
+			color: #9d9fb5 !important;
+			font-family: 'Poppins', sans-serif !important;
+		}
+
+        .mobile-menu li a{
+            color: white !important;
+        }
+
+		.main-header-one.fixed-header{
+			position: static !important;
+		}
+	</style>
+
+</head>
+
+<body class="body-bg-color">
+
+	<div class="page-wrapper">
+
+		<!-- Preloader -->
+		<div class="preloader"></div>
+		<!-- End Preloader -->
+
+		<!-- Cursor -->
+		<div class="cursor"></div>
+		<div class="cursor-follower"></div>
+		<!-- Cursor End -->
+
+
+		<!-- Main Header -->
+		<header class="main-header main-header-one">
+
+			<!-- Header Lower -->
+			<div class="header-lower">
+
+				<div class="main-menu__wrapper">
+					<div class="inner-container d-flex align-items-center justify-content-between">
+
+						<!-- Logo Box -->
+						<div class="main-header-one__logo-box">
+							<a href="{% url 'home' %}"><img style="max-width: 180px;" src="{% static 'images/logo.png' %}" alt="Inteligência Ilimitada"></a>
+						</div>
+
+						<div class="nav-outer">
+
+							<!-- Main Menu -->
+							<nav class="main-menu show navbar-expand-md">
+								<div class="navbar-header">
+									<button class="navbar-toggler" type="button" data-toggle="collapse"
+										data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+										aria-expanded="false" aria-label="Toggle navigation">
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+
+								<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+									<ul class="navigation clearfix">
+										<li><a href="{% url 'home' %}">Home</a></li>
+										<li>
+                                            <a href="{% url 'sobre' %}">Sobre</a>
+										</li>
+										<li class="dropdown">
+                                            <a href="#">Ferramentas</a>
+											<ul>
+												<li><a href="{% url 'calculadora_dias_uteis' %}">Calculadora de Dias úteis</a></li>
+                                                <li><a href="{% url 'calculadora_financeira' %}">Calculadora Financeira</a></li>
+												<li><a href="{% url 'calculadora_cientifica' %}">Calculadora Científica</a></li>
+												<li><a href="{% url 'calculadora_calorias' %}">Calculadora de Calorias</a></li>
+												<li><a href="{% url 'peso_ideal' %}">Calculadora Peso Ideal</a></li>
+                                                <li><a href="{% url 'removedor_fundo' %}">Remover de Fundo</a></li>
+                                                <li><a href="{% url 'criar_texto' %}">Criar Textos</a></li>
+                                                <li><a href="{% url 'resumir_texto' %}">Resumir Textos</a></li>
+                                                <li><a href="{% url 'reescrever_texto' %}">Reescrever Textos</a></li>
+												<li><a href="{% url 'qr_code' %}">Gerador QR CODE</a></li>
+                                                <li><a href="{% url 'gerador_senhas' %}">Gerador de Senhas</a></li>
+                                                <li><a href="{% url 'gerador_cpf' %}">Gerador de CPF</a></li>
+                                                <li><a href="{% url 'gerador_cnpj' %}">Gerador de CNPJ</a></li>
+												<li><a href="{% url 'consulta_site' %}">Consulta Site</a></li>
+											</ul>
+										</li>
+                                        <li><a href="{% url 'blog' %}">Blog</a></li>
+									</ul>
+								</div>
+
+							</nav>
+							<!-- Main Menu End-->
+
+						</div>
+
+						<!-- Outer Box -->
+						<div class="outer-box d-flex align-items-center">
+
+							<ul class="main-header__login-sing-up">
+								<li><a href="mailto:contato@inteligenciailimitada.com.br">Contato</a></li>
+							</ul>
+
+							<div class="mobile-nav-toggler">
+								<span class="icon-menu"></span>
+							</div>
+
+						</div>
+						<!-- End Outer Box -->
+
+					</div>
+
+				</div>
+			</div>
+			<!-- End Header Lower -->
+
+			<!-- Mobile Menu  -->
+			<div class="mobile-menu">
+				<div class="menu-backdrop"></div>
+				<div class="close-btn"><span class="icon far fa-times fa-fw"></span></div>
+				<nav class="menu-box" style="background: black; color: white;">
+					<div class="nav-logo"><a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt="Inteligência Ilimitada"></a></div>
+					<div class="menu-outer">
+						<!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+					</div>
+				</nav>
+			</div>
+			<!-- End Mobile Menu -->
+		</header>
+		<!-- End Main Header -->
+
+
+		<!-- Page Title Start -->
+		<section class="page-title">
+			<div class="container">
+				<div class="page-title__inner">
+					<div class="page-title__shape-1"
+						style="background-image: url(images/shapes/page-title-shape-1.png);"></div>
+					<div class="page-title__title-box">
+						<p class="page-title__sub-title">Detalhes do Post</p>
+						<h3 class="page-title__title">{{post.titulo}}</h3>
+					</div>
+					<p class="page-title__text">
+						{{post.descricao}}
+					</p>
+				</div>
+			</div>
+		</section>
+		<!-- Page Title End -->
+
+		<!-- Blog Details Start -->
+		<section class="blog-details">
+			<div class="container">
+				<div class="blog-details__img">
+					<img src="{{post.foto.url}}" alt="{{post.titulo}}">
+				</div>
+				<div class="blog-details__bottom">
+					<div class="blog-details__person-and-date">
+						<div class="blog-details__person">
+							<div class="blog-details__person-img">
+								<img style="max-width: 40px;" src="{% static 'images/favicon.png' %}" alt="">
+							</div>
+							<p class="blog-details__person-name">Inteligência Ilimitada</p>
+						</div>
+						<ul class="blog-details__date">
+							<li>
+								<p><span class="icon-date"></span>{{post.data_publicacao|naturalday|title}}</p>
+							</li>
+							<!-- <li>
+								<p><span class="icon-three-o-clock-clock"></span>4 Minute Read</p>
+							</li> -->
+						</ul>
+					</div>
+					<div class="post-texto" style="margin: 20px 0;">
+						{{post.texto|safe}}
+					</div>
+					<!-- <p class="blog-details__text-1">AI-enabled computers make zero errors if programmed correctly. Even
+						the most seasoned and well-versed writers and content producers endure mental gaps. Nulla Lorem
+						mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation
+						incididunt aliquip deserunt reprehenderit elit laborum. significant role in determining their
+						overall well-being, including their physical and mental health, as well as their happiness and
+						satisfaction with life. A healthy lifestyle, which includes a balanced diet, regular exercise,
+						and a healthy sleep pattern,</p>
+					<p class="blog-details__text-2">
+						Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis
+						deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt.
+					</p>
+					<p class="blog-details__text-3">AI-enabled computers make zero errors if programmed correctly.</p>
+					<p class="blog-details__text-4">AI models are based on predictive analysis thus leaving no scope for
+						errors, including their behaviors, habits, and daily routines. It encompasses everything from
+						their diet, exercise routines, and sleep habits to their recreational activities, social
+						interactions, and work habits. A person's lifestyle plays a significant role in determining
+						their overall well-being, including their physical and mental health, as well as their happiness
+						and satisfaction with life. A healthy lifestyle, which includes a balanced diet, regular
+						exercise, and a healthy sleep pattern, can improve an individual's quality of life and reduce
+						the risk of chronic diseases.</p>
+					<p class="blog-details__text-5">What is SEO Writing AI and how do I use it?</p>
+					<ul class="blog-details__points list-unstyled">
+						<li>
+							<div class="blog-details__points-shape"></div>
+							<p>Helps to save both time and resources and helps in achieving accurate and efficient
+								results., and a healthy sleep pattern, can improve an individual's quality of life and
+								reduce the risk of chronic diseases. On the other hand, unhealthy lifestyle habits, such
+								as smoking, excessive alcohol consumption, and a sedentary lifestyle, can have negative
+								impacts on one's health and well-being.</p>
+						</li>
+						<li>
+							<div class="blog-details__points-shape"></div>
+							<p>Lifestyle refers to an individual's habits, behaviors, and patterns of living.</p>
+						</li>
+						<li>
+							<div class="blog-details__points-shape"></div>
+							<p>encompasses all aspects of a person's daily life, including their diet, exercise routine
+							</p>
+						</li>
+						<li>
+							<div class="blog-details__points-shape"></div>
+							<p>Lifestyle choices can also impact a person's financial, social, and environmental
+								well-being.</p>
+						</li>
+						<li>
+							<div class="blog-details__points-shape"></div>
+							<p>A person's lifestyle plays a major role in determining their overall health, happiness,
+								and well-being.
+								healthy lifestyle, which includes a balanced diet, regular physical activity.</p>
+						</li>
+					</ul>
+					<div class="blog-details__text-box">
+						<p>There are many different forms of travel, including road trips, cruises, backpacking, and
+							more, each offering its own unique set of experiences and adventures.</p>
+						<span>Angela B. Harris</span>
+					</div>
+					<p class="blog-details__text-6">A healthy lifestyle, which includes a balanced diet, regular
+						exercise, and a healthy sleep pattern, can improve an individual's quality of life and reduce
+						the risk of chronic diseases. On the other hand, unhealthy lifestyle habits, such as smoking,
+						excessive alcohol consumption, and a sedentary lifestyle, can have negative impacts on one's
+						health and well-being. Thus, making intentional choices about one's
+					</p>
+					<div class="blog-details__tag-and-social">
+						<div class="blog-details__tag">
+							<a href="#">Open AI</a>
+							<a href="#">Copywriting</a>
+							<a href="#">AI Assistant</a>
+						</div>
+						<div class="blog-details__social">
+							<a href="#"><span class="icon-social-1"></span></a>
+							<a href="#"><span class="icon-social-3"></span></a>
+							<a href="#"><span class="icon-social-4"></span></a>
+							<a href="#"><span class="icon-social-5"></span></a>
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</section>
+		<!-- Blog Details End -->
+
+		<!-- Main Footer Start -->
+		<footer class="main-footer">
+			<div class="main-footer__shape-1 img-bounce"></div>
+			<div class="main-footer__top">
+				<div class="container" style="width: 100%;">
+					<div class="row" style="display: flex; justify-content: center; align-items: flex-start; gap: 50px; flex-flow: row wrap;">
+						<div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+							<div class="footer-widget__column footer-widget__about">
+								<div class="footer-widget__logo">
+									<a href="index.html"><img src="{% static 'images/logo.png' %}" alt="Inteligência Ilimitada"></a>
+								</div>
+								<p class="footer-widget__about-text">
+									Acreditamos no potencial transformador da inteligência artificial e buscamos 
+									compartilhar conhecimentos e insights sobre esse tema tão promissor
+                                </p>
+							</div>
+						</div>
+						<div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+							<div class="footer-widget__column footer-widget__company">
+								<div class="footer-widget__title-box">
+									<h3 class="footer-widget__title">Funcionalidades</h3>
+								</div>
+								<div class="footer-widget__company-list-box">
+									<ul class="footer-widget__company-list">
+										<li><a href="{% url 'calculadora_dias_uteis' %}">Calculadora de Dias úteis</a></li>
+										<li><a href="{% url 'calculadora_financeira' %}">Calculadora Financeira</a></li>
+										<li><a href="{% url 'calculadora_cientifica' %}">Calculadora Científica</a></li>
+										<li><a href="{% url 'calculadora_calorias' %}">Calculadora de Calorias</a></li>
+										<li><a href="{% url 'peso_ideal' %}">Calculadora Peso Ideal</a></li>
+										<li><a href="{% url 'removedor_fundo' %}">Remover de Fundo</a></li>
+										<li><a href="{% url 'criar_texto' %}">Criar Textos</a></li>
+										<li><a href="{% url 'resumir_texto' %}">Resumir Textos</a></li>
+										<li><a href="{% url 'reescrever_texto' %}">Reescrever Textos</a></li>
+										<li><a href="{% url 'qr_code' %}">Gerador QR CODE</a></li>
+										<li><a href="{% url 'gerador_senhas' %}">Gerador de Senhas</a></li>
+										<li><a href="{% url 'gerador_cpf' %}">Gerador de CPF</a></li>
+										<li><a href="{% url 'gerador_cnpj' %}">Gerador de CNPJ</a></li>
+										<li><a href="{% url 'consulta_site' %}">Consulta Site</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+							<div class="footer-widget__column footer-widget__resources">
+								<div class="footer-widget__title-box">
+									<h3 class="footer-widget__title">Recursos</h3>
+								</div>
+								<div class="footer-widget__resources-list-box">
+									<ul class="footer-widget__resources-list">
+										<li><a href="{% url 'sobre' %}">Sobre</a></li>
+										<li><a href="{% url 'blog' %}">Blog</a></li>
+										<li><a href="{% url 'politica_privacidade' %}">Política de Privacidade</a></li>
+										<li><a href="{% url 'politica_cookies' %}">Política de Cookies</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-footer__bottom">
+				<div class="container">
+					<div class="main-footer__bottom-inner">
+						<p class="main-footer__bottom-text">2024 Inteligência Ilimitada - ©Copyright</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Main Footer End -->
+
+
+		<!-- Search Popup -->
+		<div class="search-popup">
+			<div class="color-layer"></div>
+			<button class="close-search"><span class="far fa-times fa-fw"></span></button>
+			<form method="post" action="blog.html">
+				<div class="form-group">
+					<input type="search" name="search-field" value="" placeholder="Search Here" required="">
+					<button type="submit"><i class="far fa-search fa-fw"></i></button>
+				</div>
+			</form>
+		</div>
+		<!-- End Search Popup -->
+
+	</div>
+	<!-- End PageWrapper -->
+
+	<!-- Scroll To Top -->
+	<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fas fa-arrow-up fa-fw"></span></div>
+
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/01-bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/02-bootstrap-select.min.js' %}"></script>
+	<script src="{% static 'js/03-color-settings.js' %}"></script>
+	<script src="{% static 'js/04-owl.js' %}"></script>
+	<script src="{% static 'js/05-jarallax.min.js' %}"></script>
+	<script src="{% static 'js/06-isotope.js' %}"></script>
+	<script src="{% static 'js/07-wow.js' %}"></script>
+	<script src="{% static 'js/08-validate.js' %}"></script>
+	<script src="{% static 'js/09-appear.js' %}"></script>
+	<script src="{% static 'js/10-swiper.min.js' %}"></script>
+	<script src="{% static 'js/11-jquery.easing.min.js' %}"></script>
+	<script src="{% static 'js/12-gsap.min.js' %}"></script>
+	<script src="{% static 'js/13-odometer.js' %}"></script>
+	<script src="{% static 'js/14-tilt.jquery.min.js' %}"></script>
+	<script src="{% static 'js/15-magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/16-jquery-ui.js' %}"></script>
+	<script src="{% static 'js/17-marquee.min.js' %}"></script>
+	<script src="{% static 'js/18-jquery.circleType.js' %}"></script>
+	<script src="{% static 'js/19-jquery.lettering.min.js' %}"></script>
+
+
+
+	<script src="{% static 'js/script.js' %}"></script>
+
+
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+	<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+</body>
+
+</html>

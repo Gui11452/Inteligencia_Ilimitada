@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    {% include 'parciais/_head.html' %}
+    {% block estilos %}{% endblock %}
+    <title> {% block titulo %} {% endblock %} </title>
+
+    <script src="https://jsc.mgid.com/site/978302.js" async>
+    </script>
+    <script charset="UTF-8" src="https://cdn.sendwebpush.com/sendwebpush/client_services/66e25dd9150ed.js" async></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16717436523">
+    </script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-16717436523');
+    </script>
+
+</head>
+<body>
+    <amp-embed width="600" height="600" layout="responsive" type="mgid" data-publisher="inteligenciailimitada.com.br" data-widget="1660782" data-container="M978302ScriptRootC1660782" data-block-on-consent="_till_responded">
+    </amp-embed>
+    <div data-type="_mgwidget" data-widget-id="1660782">
+    </div>
+    <script>(function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq");
+    </script>
+    
+    {% include 'parciais/_header.html' %}
+    {% block container %}{% endblock %}
+    {% include 'parciais/_footer.html' %}
+    {% block scripts %}{% endblock %}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="{% static 'js/cabecalho.js' %}"></script>
+</body>
+</html>

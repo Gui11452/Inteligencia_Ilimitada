@@ -1,0 +1,114 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/criar_texto.css' %}">
+    <link rel="icon" href="{% static 'images/resumir_texto.png' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3198833494006892"
+     crossorigin="anonymous"></script>
+    <title> Criar Textos - Inteligência Ilimitada </title>
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+            <a href="{% url 'criar_texto' %}">
+                <img src="{% static 'images/icons/ai-speech.png' %}" alt="Inteligência Ilimitada">
+                <h1>
+                    Criar Textos
+                </h1>
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+            <h2>
+                Bem-vindo ao Criar Textos!
+                Uma ferramenta online e gratuita que cria textos utilizando a Inteligência Artificial
+            </h2>
+            <form action="{% url 'criar_texto' %}" method="POST">
+                {% csrf_token %}
+                {% include 'parciais/_messages.html' %}
+                <div>
+                    <div>
+                        <label for="tipo_texto">
+                            Tipo de texto
+                        </label>
+                        <select name="tipo_texto" id="tipo_texto">
+                            <option value="Texto Comum">Texto Comum</option>
+                            <option value="Texto em Tópicos">Texto em Tópicos</option>
+                            <option value="Texto Critico">Texto Crítico</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="modo_escrita">
+                            Modo de Escrita
+                        </label>
+                        <select name="modo_escrita" id="modo_escrita">
+                            <option value="Padrão">Padrão</option>
+                            <option value="Formal">Formal</option>
+                            <option value="Informal">Informal</option>
+                            <option value="Acadêmico">Acadêmico</option>
+                            <option value="Escrever como Criança">Escrever como Criança</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    
+                    {% if resultado %}
+                        <textarea name="texto_antes" placeholder="Cole as instruções para criar o seu texto aqui. Depois clique no botão Criar. Para finalizar, revise o texto para garantir total legibilidade e autênticidade." cols="40" rows="20">{{texto_antes}}</textarea>
+                        <textarea name="texto_depois" id="texto_depois" value="" cols="40" rows="20">{{resultado}}</textarea>
+                    {% else %}
+                        <textarea name="texto_antes" placeholder="Cole as instruções para criar o seu texto aqui. Depois clique no botão Criar. Para finalizar, revise o texto para garantir total legibilidade e autênticidade." cols="40" rows="20"></textarea>
+                        <textarea name="texto_depois" id="texto_depois" value="" cols="40" rows="20"></textarea>
+                    {% endif %}
+                </div>
+                <input type="submit" id="submit" value="Criar">
+                <span class="loader"></span>
+            </form>
+            <p>
+                DISCLAIMER: Com o uso do nosso Criar Textos você criará textos claros e 
+                bonitos, mantendo sua própria identidade de escrita, tudo isso com ajuda 
+                da Inteligência Artificial.
+            </p>
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p>
+            © 2024 Criar Texto - Inteligência Ilimitada - Copyright
+        </p>
+        <nav>
+            <a href="{% url 'politica_cookies' %}" target="_blank">
+                Política de Cookies
+            </a>
+            <a href="{% url 'politica_privacidade' %}" target="_blank">
+                Política de Privacidade
+            </a>
+            <a href="mailto:contato@inteligenciailimitada.com.br">
+                Contato: contato@inteligenciailimitada.com.br
+            </a>
+        </nav>
+    </footer>
+
+    <script>
+        const loader = document.querySelector('.loader');
+        const submit = document.querySelector('#submit');
+
+        document.addEventListener('submit', (e) => {
+            loader.style.display = 'block';
+            submit.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

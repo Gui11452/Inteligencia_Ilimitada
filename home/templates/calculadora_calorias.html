@@ -1,0 +1,152 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/calculadora_calorias.css' %}">
+    <link rel="icon" href="{% static 'images/calorias.png' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3198833494006892"
+     crossorigin="anonymous"></script>
+    <title> Calculadora de Calorias - Inteligência Ilimitada </title>
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+            <a href="{% url 'calculadora_calorias' %}">
+                <img src="{% static 'images/calorias.png' %}" alt="Inteligência Ilimitada">
+                <h1>
+                    Calculadora de Calorias
+                </h1>
+            </a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/favicon.png' %}" alt="Inteligência Ilimitada">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div>
+            <h2>
+                Bem-vindo ao Calculadora de Calorias! Uma ferramenta 
+                online e gratuita que calcula o IDR – Ingestão Diária Recomendada
+            </h2>
+
+            <form class="calculadora">
+                <div>
+                    <input type="text" id="idade" name="idade" placeholder="Idade" onkeypress="$(this).mask('00')" required>
+                    <input type="text" id="altura" name="altura" placeholder="Altura (cm)"
+                    onkeypress="$(this).mask('000')" required>
+                </div>
+
+                <div>
+                    <input type="text" id="peso-atual" name="peso-atual" placeholder="Peso (kg)"
+                    onkeypress="$(this).mask('00.00')" required>
+                    <input type="text" id="peso-desejado" name="peso-desejado" placeholder="Peso desejado (kg)"
+                    onkeypress="$(this).mask('00.00')" required>
+                </div>
+
+                <div>
+                    <select name="sexo" id="sexo">
+                        <option value="Sexo" disabled selected>Sexo</option>
+                        <option value="Homem">Homem</option>
+                        <option value="Mulher">Mulher</option>
+                    </select>
+                    <input type="text" id="glucose-level" name="nivel-glicose" placeholder="Nível glicose (em mg/dL)"
+                    onkeypress="$(this).mask('000')" required>
+                </div>
+                <p class="sexo-errors">d</p>
+
+                <div>
+                    <select name="atividade" id="atividade">
+                        <option value="Qual o seu nível de atividade diária?" disabled selected>Qual o seu nível de atividade diária?</option>
+                        <option value="Sem atividade">Sem atividade</option>
+                        <option value="Atividade mínima">Atividade mínima</option>
+                        <option value="Atividade moderada">Atividade moderada</option>
+                        <option value="Muito ativo">Muito ativo</option>
+                        <option value="Extremadamente ativo">Extremadamente ativo</option>
+                    </select>
+                </div>
+                <p class="atividade-errors"></p>
+
+                <input type="submit" id="calcular" value="Calcular">
+            </form>
+
+            <div class="resultados">
+                <h2>
+                    Resultado
+                </h2>
+                <div>
+                    <div class="calorias-diarias">
+                        <p>
+                            Calorias Diárias (kcal)
+                        </p>
+                        <p> </p>
+                    </div>
+                    <div class="gorduras">
+                        <p>
+                            Gorduras (g)
+                        </p>
+                        <p></p>
+                    </div>
+                    <div class="proteinas">
+                        <p>
+                            Proteínas (g)
+                        </p>
+                        <p></p>
+                    </div>
+                    <div class="carboidratos">
+                        <p>
+                            Carboidratos (g)
+                        </p>
+                        <p></p>
+                    </div>
+                    <div class="consumo-diario-agua">
+                        <p>
+                            Consumo Diário de Água (ml)
+                        </p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                DISCLAIMER: O IDR é a sigla para Ingestão Diária Recomendada que serve para 
+                dar um objetivo diário calórico, e assim poder alcançar o seu peso ideal. 
+                O cálculo do IDR é baseado em fatores únicos e pessoais como a idade, peso,
+                altura, sexo e nível de atividade.
+            </p>
+
+            
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <p>
+            © 2024 Calculadora de Calorias - Inteligência Ilimitada - Copyright
+        </p>
+        <nav>
+            <a href="{% url 'politica_cookies' %}" target="_blank">
+                Política de Cookies
+            </a>
+            <a href="{% url 'politica_privacidade' %}" target="_blank">
+                Política de Privacidade
+            </a>
+            <a href="mailto:contato@inteligenciailimitada.com.br">
+                Contato: contato@inteligenciailimitada.com.br
+            </a>
+        </nav>
+    </footer>
+
+
+    <script src="{% static 'js/calculadora_calorias.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+</body>
+</html>

@@ -1,5 +1,12 @@
 ## Plataforma com Ferramentas de Inteligência Artificial
 
+## 🛠 Habilidades
+- Django
+- Python
+- SQL e Banco de Dados
+- Javascript, HTML, CSS
+
+## Funcionalidades
 - Blog
 - Gerador de Senhas
 - Gerador de CPF
